@@ -19,8 +19,8 @@ Magnum IDs: { 88040, 88041, 88151, 88152, 88153, 88154, 88155, 88156, 88157, 881
 ]]--
 
 function MagnumTracker:new(o)
-    o = o or {}
-    setmetatable(o, self)
+	o = o or {}
+	setmetatable(o, self)
 	self.__index = self
 
 	self.MagnumVoidName = "Hostile Invisible Unit for Fields (0 hit radius)"
@@ -36,7 +36,7 @@ function MagnumTracker:new(o)
 	self.TrackedPixieId = nil
 	self.TrackedPixieData = nil
 
-    return o
+	return o
 end
 
 function MagnumTracker:Init()
@@ -44,7 +44,7 @@ function MagnumTracker:Init()
 	local strConfigureButtonText = ""
 	local tDependencies = {}
 
-    Apollo.RegisterAddon(self, bHasConfigureFunction, strConfigureButtonText, tDependencies)
+	Apollo.RegisterAddon(self, bHasConfigureFunction, strConfigureButtonText, tDependencies)
 end
 
 function MagnumTracker:OnLoad()
@@ -54,7 +54,7 @@ end
 
 function MagnumTracker:OnDocLoaded()
 	if self.xmlDoc ~= nil and self.xmlDoc:IsLoaded() then
-	    self.Overlay = Apollo.LoadForm(self.xmlDoc, "Overlay", "InWorldHudStratum", self)
+		self.Overlay = Apollo.LoadForm(self.xmlDoc, "Overlay", "InWorldHudStratum", self)
 		if self.Overlay == nil then
 			Apollo.AddAddonErrorText(self, "Could not load the overlay window for some reason.")
 			return
@@ -122,9 +122,9 @@ function MagnumTracker:StopTracking()
 end
 
 function MagnumTracker:OnUnitCreated(unit)
-    if self.Player == nil then
-        local player = GameLib.GetPlayerUnit()
-        if player ~= nil and player:IsValid() then self.Player = player end
+	if self.Player == nil then
+		local player = GameLib.GetPlayerUnit()
+		if player ~= nil and player:IsValid() then self.Player = player end
 	end
 
 	if self.Player == nil then return end
@@ -149,11 +149,11 @@ function MagnumTracker:OnUnitDestroyed(unit)
 end
 
 function MagnumTracker:OnWorldChanged()
-    self.Player = nil
+	self.Player = nil
 end
 
 function MagnumTracker:OnChatZoneChange()
-    self:OnWorldChanged()
+	self:OnWorldChanged()
 end
 
 
