@@ -4,7 +4,7 @@ require "Window"
 local MagnumTracker = {}
 
 --[[
-function FindMagnum()
+function Find()
 	local ret = {}
 	for i = 1,99999 do
 		local spl = GameLib.GetSpell(i)
